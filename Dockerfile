@@ -29,14 +29,8 @@ COPY supervisord.conf /etc/
 
 EXPOSE 8083
 
-# i3 setup
 RUN useradd -m user
-RUN echo "user ALL=(ALL) ALL" > /etc/sudoers
 WORKDIR /home/user
-RUN mkdir -p /home/user/.config/i3
-RUN chown -R user: /home/user/
-RUN chown user /usr/sbin/i3status
-RUN cp /etc/i3/config /home/user/.config/i3
 USER user
 
 CMD ["/usr/bin/supervisord"]
