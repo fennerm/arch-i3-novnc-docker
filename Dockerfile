@@ -29,6 +29,4 @@ COPY supervisord.conf /etc/
 
 EXPOSE 8083
 
-RUN useradd -m user
-WORKDIR /home/user
-CMD su - user -c "/usr/bin/supervisord"
+CMD /usr/bin/supervisord
