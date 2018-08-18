@@ -8,7 +8,7 @@ Usage
 
 ``` {.shell}
 docker pull fennerm/arch-i3-novnc
-docker run --rm -p 8083:8083 -ti --name arch-i3-novnc -e DISPLAY=:0.0 arch-i3-novnc:latest
+docker run --rm -p 8083:8083 -ti --name arch-i3-novnc -e DISPLAY=:0.0 arch-i3-novnc:latest supervisord
 ```
 
 Then navigate to `localhost:8083` in your browser.

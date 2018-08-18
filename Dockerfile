@@ -32,4 +32,4 @@ EXPOSE 8083
 RUN useradd -m user
 WORKDIR /home/user
 
-CMD /usr/bin/supervisord
+CMD ["/usr/bin/supervisord"]
