@@ -1,8 +1,9 @@
 FROM base/archlinux:latest
 
-MAINTAINER Fenner Macrae <fmacrae.dev@gmail.com>
+LABEL maintainer="fmacrae.dev@gmail.com"
 
-RUN pacman -Sy --noconfirm 
+RUN pacman -Sy --noconfirm archlinux-keyring
+RUN pacman -Syyu --noconfirm
 RUN pacman -S --noconfirm \
     i3status \
     i3-wm \
