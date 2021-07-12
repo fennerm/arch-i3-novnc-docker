@@ -1,7 +1,12 @@
-FROM base/archlinux:latest
+FROM archlinux:base
 
 LABEL maintainer="fmacrae.dev@gmail.com"
 
+# WORKAROUND for glibc 2.33 and old Docker
+# See https://github.com/actions/virtual-environments/issues/2658
+RUN patched_glibc=glibc-linux4-2.33-4-x86_64.pkg.tar.zst && \
+curl -LO "https://repo.archlinuxcn.org/x86_64/$patched_glibc" && \
+bsdtar -C / -xvf "$patched_glibc"
 RUN pacman -Sy --noconfirm archlinux-keyring
 RUN pacman -Syyu --noconfirm
 RUN pacman -S --noconfirm \
